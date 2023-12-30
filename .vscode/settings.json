@@ -1,0 +1,18 @@
+{
+  "files.autoSave": "off",
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "cSpell.words": ["braxuls", "nuxt"],
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  }
+}

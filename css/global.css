@@ -1,0 +1,34 @@
+@import url("./tailwind.css");
+@import url("./fonts.css");
+@import "@flaticon/flaticon-uicons/css/all/all";
+
+body,
+html {
+  font-size: 16px;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+body {
+  @apply bg-black-800 text-[#f6f6f6];
+  max-width: 1920px;
+  margin: auto;
+  min-width: 320px;
+  position: relative;
+}
+
+nav li {
+  @apply list-none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
