@@ -7,6 +7,6 @@
     <Block2 />
     <Block3 />
     <Block4 />
-    <!-- <Footer /> -->
+    <Footer />
   </div>
 </template>
