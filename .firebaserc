@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "braxuls"
+  },
+  "targets": {
+    "braxuls": {
+      "hosting": {
+        "braxuls": [
+          "braxuls"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

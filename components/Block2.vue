@@ -40,14 +40,22 @@ const services = ref([
 </script>
 
 <template>
-  <div class="flex flex-col p-[100px] gap-[120px] bgBlock2">
+  <div
+    class="flex flex-col px-4 sm:px-[60px] md:px-[60px] xl:px-[100px] py-[50px] sm:py-[60px] lg:py-[100px] gap-[40px] sm:gap-[60px] md:gap-[60px] lg:gap-[100px] xl:gap-[120px] bgBlock2"
+  >
     <div class="flex flex-col items-center gap-5">
-      <h1 class="font-semibold text-[64px] leading-[1.25] -tracking-[1.92px]">
+      <h1
+        class="font-semibold text-2xl sm:text-[36px] lg:text-[48px] xl:text-[56px] 2xl:text-[64px] leading-[1.25] sm:-tracking-[1.92px] text-center"
+      >
         Seu próximo projeto começa aqui
       </h1>
-      <span class="uppercase -tracking-[.48px]"> Conheça nossos serviços </span>
+      <span class="text-sm sm:text-base uppercase sm:-tracking-[.48px]">
+        Conheça nossos serviços
+      </span>
     </div>
-    <div class="flex flex-wrap w-full justify-center gap-[120px]">
+    <div
+      class="flex flex-wrap w-full xl:justify-center justify-between gap-y-[30px] md:gap-y-[60px] md:gap-x-[30px] lg:gap-x-0 lg:gap-y-[60px] xl:gap-[120px] 2xl:gap-[50px] 3xl:gap-[120px]"
+    >
       <ServiceItem
         :title="item.title"
         :description="item.description"
@@ -56,10 +64,12 @@ const services = ref([
       />
     </div>
     <button
-      class="flex items-center gap-4 self-center px-8 py-3 bg-primary rounded-[32px] text-black-700 w-fit hover:bg-white duration-[.2s] transition-all hover:scale-[102%]"
+      class="flex items-center self-center justify-center gap-4 w-full px-4 sm:px-8 py-3 bg-primary rounded-[32px] text-black-700 sm:w-fit hover:bg-white duration-[.2s] transition-all hover:scale-[102%]"
     >
-      <i class="fi fi-ss-lightbulb-on text-2xl h-7"></i>
-      <span class="font-bold text-xl">
+      <i
+        class="fi fi-ss-lightbulb-on lg:text-xl xl:text-2xl h-5 lg:h-6 xl:h-7"
+      ></i>
+      <span class="font-bold text-sm sm:text-base lg:text-lg xl:text-xl">
         Transformar minhas ideias em negócios
       </span>
     </button>

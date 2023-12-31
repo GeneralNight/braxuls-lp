@@ -42,30 +42,30 @@
         </button>
       </div>
       <div class="flex flex-col gap-[15px]">
-        <div
-          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary"
+        <a
+          target="_blank"
+          href="mailto:comercial@braxuls.com"
+          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary hover:scale-[103%]"
         >
           <i class="fi fi-sr-envelope text-xl h-6"></i>
-          <a class="font-semibold" href="mailto:comercial@braxuls.com">
-            comercial@braxuls.com
-          </a>
-        </div>
-        <div
-          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary"
-        >
-          <i class="fi fi-brands-instagram text-xl h-6"></i>
-          <a class="font-semibold" href="mailto:comercial@braxuls.com">
-            Braxuls
-          </a>
-        </div>
-        <div
-          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary"
+          <span class="font-semibold"> comercial@braxuls.com </span>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/braxuls/"
+          target="_blank"
+          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary hover:scale-[103%]"
         >
           <i class="fi fi-brands-linkedin text-xl h-6"></i>
-          <a class="font-semibold" href="mailto:comercial@braxuls.com">
-            Braxuls
-          </a>
-        </div>
+          <span class="font-semibold"> LinkedIn </span>
+        </a>
+        <a
+          target="_blank"
+          href="https://www.instagram.com/braxuls?igsh=MWFhamk5cHZrdjI5eA=="
+          class="flex items-center gap-3 transition-all duration-[.2s] hover:text-primary hover:scale-[103%]"
+        >
+          <i class="fi fi-brands-instagram text-xl h-6"></i>
+          <span class="font-semibold"> Instagram </span>
+        </a>
       </div>
     </div>
     <div class="flex justify-center items-center py-5">

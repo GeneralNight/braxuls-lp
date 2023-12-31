@@ -5,6 +5,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 const contactForm = ref<{
   name: string;
   email: string;
@@ -50,7 +51,7 @@ const sendContact = async () => {
     if (contactForm.value.files.length) {
       await Promise.all(
         contactForm.value.files.map(async (f) => {
-          let path = `/contactFiles/${f.name}`;
+          let path = `/contactFiles/${uuidv4()}`;
           const storageRef = StorageRef(storage, path);
           const uploadTask = uploadBytesResumable(storageRef, f);
           uploadTask.on("state_changed", (snapshot) => {
@@ -86,6 +87,7 @@ const sendContact = async () => {
       terms: contactForm.value.terms,
       files: contactFiles,
     });
+    contactSent.value = true;
     resetForm();
   } catch (error) {
     errorSendContact.value = true;
@@ -105,39 +107,47 @@ const resetForm = () => {
     files: [],
   };
   reset();
+  setTimeout(() => {
+    contactSent.value = false;
+  }, 3000);
 };
 </script>
 
 <template>
   <div
-    class="flex flex-col px-[100px] py-[80px] gap-10 bgBlock4 relative overflow-hidden"
+    class="flex flex-col px-4 sm:px-[60px] md:px-[60px] xl:px-[100px] py-[50px] sm:py-[60px] lg:py-[80px] gap-10 bgBlock4 relative overflow-hidden"
   >
     <div class="inset-0 z-0 absolute bgimg opacity-50"></div>
     <div class="flex flex-col gap-6 z-[1]">
       <div class="flex flex-col gap-[15px]">
-        <span class="text-primary font-semibold uppercase leading-[1.25]">
+        <span
+          class="text-primary font-semibold uppercase leading-[1.25] text-xs sm:text-base"
+        >
           Compartilhe sua ideia conosco
         </span>
-        <h1 class="text-[64px] leading-[1.25] -tracking-[1.92px] font-light">
-          Você está a um clique de transformar sua <br />
-          <span class="font-bold"> ideia em realidade.</span>
+        <h1
+          class="text-2xl sm:text-[36px] lg:text-[48px] xl:text-[56px] 2xl:text-[64px] leading-[1.25] sm:-tracking-[1.92px] font-light"
+        >
+          Você está a um clique de transformar sua
+          <br class="hidden md:block" />
+          <span class="font-bold pl-1 md:pl-0"> ideia em realidade.</span>
         </h1>
       </div>
-      <span class="font-light text-2xl leading-[1.5]">
+      <span class="font-light lg:text-xl xl:text-2xl leading-[1.5]">
         Estamos emocionados para iniciar esta jornada transformadora ao seu
-        lado. Preencha <br />
+        lado. Preencha <br class="hidden md:block" />
         o formulário abaixo e dê o primeiro passo para transformar sua visão em
         realidade.
       </span>
       <div class="flex flex-col gap-[15px]">
-        <span class="font-light text-2xl leading-[1.5]">
+        <span class="font-light lg:text-xl xl:text-2xl leading-[1.5]">
           Ou se preferir, envie um e-mail para:
         </span>
         <div class="flex items-center gap-4">
           <i class="fi fi-sr-envelope text-2xl h-6"></i>
           <a
             href="mailto:comercial@braxuls.com"
-            class="text-2xl font-semibold leading-[1.5]"
+            class="font-light lg:text-xl xl:text-2xl leading-[1.5]"
           >
             comercial@braxuls.com
           </a>
@@ -145,7 +155,7 @@ const resetForm = () => {
       </div>
     </div>
     <div
-      class="flex flex-col gap-10 z-[1] max-w-[1024px] relative"
+      class="flex flex-col gap-6 md:gap-10 z-[1] max-w-[1024px] relative"
       :class="{
         'opacity-80 pointer-events-none': sendingContact,
       }"
@@ -166,11 +176,11 @@ const resetForm = () => {
           Contato enviado com sucesso! Fique de olho no email!
         </span>
       </div>
-      <div class="flex items-center gap-10">
+      <div class="flex items-center gap-6 md:gap-10 flex-col md:flex-row">
         <input type="text" placeholder="Nome" v-model="contactForm.name" />
         <input type="email" placeholder="Email" v-model="contactForm.email" />
       </div>
-      <div class="flex items-center gap-10">
+      <div class="flex items-center gap-6 md:gap-10 flex-col md:flex-row">
         <input type="text" placeholder="Cargo" v-model="contactForm.role" />
         <input type="tel" placeholder="Telefone" v-model="contactForm.phone" />
       </div>
@@ -224,10 +234,12 @@ const resetForm = () => {
       </div>
       <button
         @click="sendContact()"
-        class="flex items-center gap-4 px-8 py-3 bg-primary rounded-[32px] text-black-700 w-fit hover:bg-white duration-[.2s] transition-all hover:scale-[102%]"
+        class="flex items-center justify-center gap-4 w-full px-4 sm:px-8 py-3 bg-primary rounded-[32px] text-black-700 sm:w-fit hover:bg-white duration-[.2s] transition-all hover:scale-[102%]"
       >
-        <i class="fi fi-ss-rocket-lunch text-xl h-6"></i>
-        <span class="font-bold">
+        <i
+          class="fi fi-ss-rocket-lunch lg:text-xl xl:text-2xl h-5 lg:h-6 xl:h-7"
+        ></i>
+        <span class="font-bold text-sm sm:text-base lg:text-lg xl:text-xl">
           {{
             !sendingContact
               ? "Transformar minha ideia em realidade"

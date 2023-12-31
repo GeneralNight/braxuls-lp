@@ -22,6 +22,9 @@ module.exports = {
           DEFAULT: "#00FF85",
         },
       },
+      screens: {
+        "3xl": "1920px",
+      },
     },
   },
   plugins: [],
